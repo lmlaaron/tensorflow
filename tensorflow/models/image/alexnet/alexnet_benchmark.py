@@ -177,9 +177,12 @@ def time_tensorflow_run(session, target, info_string):
     _ = session.run(target)
     duration = time.time() - start_time
     if i >= num_steps_burn_in:
-      if not i % 10:
-        print ('%s: step %d, duration = %.3f' %
-               (datetime.now(), i - num_steps_burn_in, duration))
+      #if not i % 10:
+      #  print ('%s: step %d, duration = %.3f' %
+      #         (datetime.now(), i - num_steps_burn_in, duration))
+      print ('%s: step %d, duration = %.3f' %
+              (datetime.now(), i - num_steps_burn_in, duration))
+ 
       total_duration += duration
       total_duration_squared += duration * duration
   mn = total_duration / FLAGS.num_batches
